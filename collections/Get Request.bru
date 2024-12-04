@@ -1,0 +1,19 @@
+meta {
+  name: Get Request
+  type: http
+  seq: 2
+}
+
+get {
+  url: 127.0.0.1:3000/
+  body: none
+  auth: none
+}
+
+tests {
+  test("should be able to ping server", function() {
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(200);
+    expect(data).to.equal('Hello Hono!');
+  });
+}

@@ -1,0 +1,17 @@
+{
+  "name": "bruno-hono-test",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "test-api": "cd collections/ && npx bru run"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "hono": "^4.6.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@usebruno/cli": "^1.35.0",
+    "tsx": "^4.7.1"
+  }
+}

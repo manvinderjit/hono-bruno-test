@@ -1,0 +1,38 @@
+meta {
+  name: Post Request
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://127.0.0.1:3000/submit
+  body: json
+  auth: none
+}
+
+body:json {
+  { "data": 
+     {
+      "id": "3",
+      "name": "John Doe"
+     }
+  }
+}
+
+tests {
+  test("should be able to submit data and receive response", function() {
+    const data = res.getBody();
+    expect(res.getStatus()).to.equal(200);
+    expect(JSON.stringify(data)).to.equal(
+      JSON.stringify({
+        "message": "Data received",
+        "data": {
+          "data": {
+            "id": "3",
+            "name": "John Doe"
+          }
+        }
+      })
+    );  
+  });
+}
